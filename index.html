@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>For You ❤️</title>
+
+    <style>
+        body {
+            background: linear-gradient(to right, #ff4e50, #fc913a);
+            font-family: Arial;
+            text-align: center;
+            color: white;
+            margin-top: 100px;
+        }
+
+        .container {
+            background: rgba(0,0,0,0.3);
+            padding: 30px;
+            border-radius: 10px;
+            display: inline-block;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background: white;
+            color: red;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1 id="title">Hey Love ❤️</h1>
+
+    <p id="message"></p>
+
+    <button onclick="showFinal()">Click for your surprise</button>
+
+    <div id="final" style="display:none;">
+        <h2>You are my everything.</h2>
+        <p>Happy Valentine's Day ❤️</p>
+        <a href="valentine_letter.pdf" download>
+            Download your letter 💌
+        </a>
+    </div>
+
+</div>
+
+<script>
+
+const text = "I made something special just for you ❤️";
+let i = 0;
+
+function typing() {
+    if (i < text.length) {
+        document.getElementById("message").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typing, 50);
+    }
+}
+
+typing();
+
+function showFinal() {
+    document.getElementById("final").style.display = "block";
+}
+
+</script>
+
+</body>
+</html>
