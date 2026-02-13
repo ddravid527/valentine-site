@@ -5,24 +5,24 @@
 <title>Our Love Movements ❤️</title>
 
 <style>
-body{
-    margin:0;
-    overflow:hidden;
-    font-family:Arial, sans-serif;
-    color:white;
+body {
+    margin: 0;
+    overflow: hidden; /* keep background fixed */
+    font-family: Arial, sans-serif;
+    color: white;
     background: url("background.jpeg") no-repeat center center fixed;
     background-size: cover;
+    position: relative;
 }
 
 /* Dark overlay */
-body::after{
-    content:"";
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,0.6);
-    z-index:-1;
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: -1;
 }
-
 /* Buttons */
 .back-btn, .music-btn{
     position:fixed;
@@ -49,17 +49,17 @@ h1{
     font-size:32px;
     margin-bottom:40px;
 }
-.story-container{
-    position: fixed;
-    bottom: -100vh;          /* start completely below screen */
+.story-container {
+    position: absolute; /* change from fixed to absolute */
+    bottom: -100%;       /* start fully below the screen */
     width: 100%;
     text-align: center;
     animation: scrollUp 260s linear forwards;
 }
 
-@keyframes scrollUp{
-    from { bottom: -100vh; }  /* fully hidden below */
-    to   { bottom: 100vh; }   /* fully scroll past top */
+@keyframes scrollUp {
+    from { bottom: -100%; }
+    to   { bottom: 100%; } /* scroll fully past top */
 }
 </style>
 </head>
@@ -176,6 +176,7 @@ window.onload = function(){
 
 </body>
 </html>
+
 
 
 
