@@ -130,11 +130,11 @@ And there are promises waiting for you… from your DUDU 💌<br><br>
 </div>
 </div>
 
-<script>
+    <script>
 let musicStarted = false;
 
 function startMusic(e){
-    if(e) e.stopPropagation();   // prevent body click conflict
+    if(e) e.stopPropagation();
     if(!musicStarted){
         document.getElementById("bgMusic").play()
             .then(() => musicStarted = true)
@@ -146,10 +146,20 @@ function goBack(e){
     e.stopPropagation();
     window.location.href = "love.html";
 }
+
+/* ADD THIS PART */
+window.onload = function(){
+    const story = document.querySelector(".story-container");
+    story.style.animation = "none";
+    story.offsetHeight; // force reflow
+    story.style.animation = "scrollUp 260s linear forwards";
+};
 </script>
+    
 
 </body>
 </html>
+
 
 
 
