@@ -1,34 +1,54 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>For You ❤️</title>
+<meta charset="UTF-8">
+<title>Happy Valentine's Day ❤️</title>
 
-    <style>
-        body {
-            background: linear-gradient(to right, #ff4e50, #fc913a);
-            font-family: Arial;
-            text-align: center;
-            color: white;
-            margin-top: 100px;
-        }
+<style>
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #b31217, #e52d27);
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
 
-        .container {
-            background: rgba(0,0,0,0.3);
-            padding: 30px;
-            border-radius: 10px;
-            display: inline-block;
-        }
+.container{
+    max-width:700px;
+    background: rgba(0,0,0,0.2);
+    padding:40px;
+    border-radius:20px;
+    text-align:center;
+}
 
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            background: white;
-            color: red;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-    </style>
+h1{
+    font-size:36px;
+}
+
+p{
+    font-size:18px;
+    line-height:1.6;
+}
+
+button{
+    margin-top:30px;
+    padding:15px 30px;
+    font-size:18px;
+    border:none;
+    border-radius:30px;
+    background:white;
+    color:#b31217;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    transform:scale(1.1);
+}
+</style>
 
 </head>
 
@@ -36,41 +56,26 @@
 
 <div class="container">
 
-    <h1 id="title">Hey Love ❤️</h1>
+<h1>Hyy Ishu ❤️</h1>
 
-    <p id="message"></p>
+<p>
+This is the first Valentine’s Day after I got you...  
+You made my life beautiful 💌  
+You are my peace, my happiness, my forever.  
+</p>
 
-    <button onclick="showFinal()">Click for your surprise</button>
+<p>
+I made something special for you... 🎁
+</p>
 
-    <div id="final" style="display:none;">
-        <h2>You are my everything.</h2>
-        <p>Happy Valentine's Day ❤️</p>
-        <a href="valentine_letter.pdf" download>
-            Download your letter 💌
-        </a>
-    </div>
+<button onclick="goToVideo()">Click for your surprise ❤️</button>
 
 </div>
 
 <script>
-
-const text = "I made something special just for you ❤️";
-let i = 0;
-
-function typing() {
-    if (i < text.length) {
-        document.getElementById("message").innerHTML += text.charAt(i);
-        i++;
-        setTimeout(typing, 50);
-    }
+function goToVideo(){
+    window.location.href = "video.html";
 }
-
-typing();
-
-function showFinal() {
-    document.getElementById("final").style.display = "block";
-}
-
 </script>
 
 </body>
