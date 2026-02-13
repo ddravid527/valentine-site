@@ -39,12 +39,13 @@ body::after{
 .music-btn{ right:20px; }
 
 /* Story animation */
-.story-container{
-    position:absolute;
-    bottom:-100%;
-    width:100%;
-    text-align:center;
-    animation:scrollUp 40s linear forwards;
+.story-container {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    transform: translateY(100vh); /* Start below the screen */
+    animation: scrollUp 40s linear forwards;
 }
 
 .story-text{
@@ -59,9 +60,9 @@ h1{
     margin-bottom:40px;
 }
 
-@keyframes scrollUp{
-    from{ bottom:-20%; }
-    to{ bottom:120%; }
+@keyframes scrollUp {
+    from { transform: translateY(100vh); }  /* start fully below */
+    to { transform: translateY(-120%); }    /* scroll up beyond top */
 }
 </style>
 </head>
@@ -151,5 +152,6 @@ function goBack(e){
 
 </body>
 </html>
+
 
 
