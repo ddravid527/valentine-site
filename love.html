@@ -1,54 +1,79 @@
 <!DOCTYPE html>
-<html>
-<body style="margin:0; padding:0; background-color:#8B0000; font-family:Arial, sans-serif;">
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>DUDU Love Hub ❤️</title>
 
-<table width="100%" cellpadding="0" cellspacing="0" align="center">
-<tr>
-<td align="center">
+<style>
 
-<table width="600" cellpadding="40" cellspacing="0" style="background: linear-gradient(to bottom, #b31217, #e52d27); border-radius:20px; color:white; text-align:center;">
+body{
+    margin:0;
+    font-family:Arial;
+    background:linear-gradient(to right,#b31217,#e52d27);
+    color:white;
+    text-align:center;
+}
 
-<tr>
-<td>
+.container{
+    margin-top:10%;
+}
 
-<h1 style="font-size:32px; margin-bottom:20px;">Happy Valentine's Day ❤️</h1>
+h1{
+    font-size:42px;
+}
 
-<p style="font-size:18px; line-height:1.6;">
-From the moment you entered my life,
-everything changed beautifully.
-<br><br>
-You are not just my love —
-you are my peace, my happiness, my forever.
-</p>
+button{
+    display:block;
+    margin:20px auto;
+    padding:15px 40px;
+    font-size:18px;
+    border:none;
+    border-radius:30px;
+    background:white;
+    color:#b31217;
+    cursor:pointer;
+    transition:0.3s;
+}
 
-<p style="margin-top:25px; font-size:16px; opacity:0.9;">
-I made something special for you…
-</p>
+button:hover{
+    transform:scale(1.1);
+}
 
-<a href="https://ddravid527.github.io/valentine-site/love.html"
-   style="display:inline-block;
-          margin-top:30px;
-          padding:15px 30px;
-          font-size:18px;
-          color:#b31217;
-          background:white;
-          text-decoration:none;
-          border-radius:30px;">
-    Read Our Love Story ❤️
-</a>
+</style>
 
-<p style="margin-top:40px; font-size:14px; opacity:0.7;">
-Forever yours
-</p>
+</head>
 
-</td>
-</tr>
+<body>
 
-</table>
+<div class="container">
 
-</td>
-</tr>
-</table>
+<h1>Welcome Ishu ❤️</h1>
+
+<p>Choose what you want to open first...</p>
+
+<button onclick="openVideo()">Watch DUDU Promises 🎬</button>
+
+<button onclick="openStory()">Read Our Love Story 🎞️</button>
+
+<button onclick="goBack()">⬅ Back</button>
+
+</div>
+
+<script>
+
+function openVideo(){
+    window.location.href="video.html";
+}
+
+function openStory(){
+    window.location.href="story.html";
+}
+
+function goBack(){
+    window.location.href="index.html";
+}
+
+</script>
 
 </body>
 </html>
