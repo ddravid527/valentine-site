@@ -66,16 +66,18 @@ h1{
 </style>
 </head>
 
-<body onclick="startMusic()">
+<body>
 
 <!-- Background Music -->
 <audio id="bgMusic" loop>
     <source src="background_son.mp3" type="audio/mp3">
 </audio>
 
+<!-- Buttons -->
 <button class="back-btn" onclick="goBack(event)">⬅ Back</button>
-<button class="music-btn" onclick="startMusic(event)">▶ Play Music</button>
+<button class="music-btn" onclick="playMusic(event)">▶ Play Music</button>
 
+<!-- Story -->
 <div class="story-container">
 <div class="story-text">
 
@@ -114,23 +116,37 @@ hold you in my right hand ❤️<br><br>
 </div>
 
 <script>
+// Flag to start music only once
 let musicStarted = false;
 
-function startMusic(e){
-    if(e) e.stopPropagation();   // prevent body click conflict
+// Function to start music
+function startMusic(){
     if(!musicStarted){
-        document.getElementById("bgMusic").play()
-            .then(() => musicStarted = true)
-            .catch(err => console.log("Audio blocked:", err));
+        const audio = document.getElementById("bgMusic");
+        audio.play().then(()=> {
+            musicStarted = true;
+            console.log("Music started!");
+        }).catch(err=>{
+            console.log("Audio blocked:", err);
+        });
     }
 }
 
+// Play music from button
+function playMusic(e){
+    e.stopPropagation(); // prevent body click conflict
+    startMusic();
+}
+
+// Play music on first click anywhere
+document.body.addEventListener("click", startMusic, { once:true });
+
+// Back button
 function goBack(e){
     e.stopPropagation();
-    window.location.href = "love.html";
+    window.location.href = "love.html"; // make sure love.html exists
 }
 </script>
 
 </body>
 </html>
-
