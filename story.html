@@ -54,7 +54,9 @@ body::after{
     text-align:center;
     animation:scrollUp 65s linear forwards;
 }
-
+.story-container{
+    animation: scrollUp 40s linear forwards;
+}
 .story-text{
     font-size:20px;   /* smaller text */
     line-height:2;
@@ -68,7 +70,7 @@ h1{
 }
 
 @keyframes scrollUp{
-    from{ bottom:-100%; }
+    from{ bottom:-20%; }
     to{ bottom:120%; }
 }
 
@@ -79,7 +81,7 @@ h1{
 
 <!-- Background Song Video -->
 <video autoplay muted loop id="bgVideo">
-    <source src="background_song.mpeg" type="video/mp4">
+    <source src="background_son.mp3" type="audio/mp3">
 </video>
 
 <button class="back-btn" onclick="goBack()">⬅ Back</button>
@@ -130,4 +132,5 @@ function goBack(){
 
 </body>
 </html>
+
 
