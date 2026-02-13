@@ -5,77 +5,148 @@
 <title>Happy Valentine's Day ❤️</title>
 
 <style>
+
 body{
     margin:0;
+    padding:0;
     font-family: Arial, sans-serif;
-    background: linear-gradient(to bottom, #b31217, #e52d27);
     color:white;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    height:100vh;
+    text-align:center;
+    overflow:hidden;
+}
+
+/* blurred background */
+body::before{
+    content:"";
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:url("background.jpg") center/cover no-repeat;
+    filter:blur(8px);
+    z-index:-1;
 }
 
 .container{
-    max-width:700px;
-    background: rgba(0,0,0,0.2);
+    margin-top:15%;
+    background:rgba(0,0,0,0.55);
     padding:40px;
-    border-radius:20px;
-    text-align:center;
+    border-radius:15px;
+    display:inline-block;
+    animation:fadeIn 2s ease;
 }
 
 h1{
-    font-size:36px;
+    font-size:42px;
 }
 
-p{
-    font-size:18px;
-    line-height:1.6;
+#typing{
+    font-size:22px;
+    margin-top:20px;
+    min-height:40px;
 }
 
 button{
     margin-top:30px;
-    padding:15px 30px;
+    padding:15px 35px;
     font-size:18px;
     border:none;
     border-radius:30px;
-    background:white;
-    color:#b31217;
+    background:#ff4e50;
+    color:white;
     cursor:pointer;
     transition:0.3s;
 }
 
 button:hover{
-    transform:scale(1.1);
+    background:#ff1e30;
+    transform:scale(1.05);
 }
-</style>
 
+/* floating hearts */
+.heart{
+    position:absolute;
+    animation:float 6s linear infinite;
+}
+
+@keyframes float{
+    from{
+        transform:translateY(100vh);
+        opacity:1;
+    }
+    to{
+        transform:translateY(-10vh);
+        opacity:0;
+    }
+}
+
+@keyframes fadeIn{
+    from{opacity:0;}
+    to{opacity:1;}
+}
+
+</style>
 </head>
 
 <body>
 
 <div class="container">
 
-<h1>Hyy Ishu ❤️</h1>
+<h1>Happy Valentine's Day Ishu ❤️</h1>
 
-<p>
-This is the first Valentine’s Day after I got you...  
-You made my life beautiful 💌  
-You are my peace, my happiness, my forever.  
-</p>
+<div id="typing"></div>
 
-<p>
-I made something special for you... 🎁
-</p>
-
-<button onclick="goToVideo()">Click for your surprise ❤️</button>
+<button onclick="openLetter()">Unlock Our Love Story ❤️</button>
 
 </div>
 
+<!-- background music -->
+<audio autoplay loop>
+<source src="music.mp3" type="audio/mpeg">
+</audio>
+
 <script>
-function goToVideo(){
-    window.location.href = "video.html";
+
+const message =
+"You are the most beautiful part of my life. I made something special only for you... ❤️";
+
+let i = 0;
+
+function typeWriter(){
+    if(i < message.length){
+        document.getElementById("typing").innerHTML += message.charAt(i);
+        i++;
+        setTimeout(typeWriter,40);
+    }
 }
+
+typeWriter();
+
+function openLetter(){
+    window.location.href="love.html";
+}
+
+/* floating hearts generator */
+function createHeart(){
+
+    const heart=document.createElement("div");
+
+    heart.className="heart";
+
+    heart.innerHTML="❤️";
+
+    heart.style.left=Math.random()*100+"vw";
+
+    heart.style.fontSize=(Math.random()*20+20)+"px";
+
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },6000);
+}
+
+setInterval(createHeart,300);
+
 </script>
 
 </body>
