@@ -7,7 +7,6 @@
 <style>
 body {
     margin: 0;
-    overflow: hidden; /* keep background fixed */
     font-family: Arial, sans-serif;
     color: white;
     background: url("background.jpeg") no-repeat center center fixed;
@@ -20,7 +19,7 @@ body::after {
     content: "";
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0,0,0,0.6);
     z-index: -1;
 }
 /* Buttons */
@@ -50,16 +49,15 @@ h1{
     margin-bottom:40px;
 }
 .story-container {
-    position: absolute; /* change from fixed to absolute */
-    bottom: -100%;       /* start fully below the screen */
     width: 100%;
     text-align: center;
+    transform: translateY(100vh); /* start below screen */
     animation: scrollUp 260s linear forwards;
 }
 
 @keyframes scrollUp {
-    from { bottom: -100%; }
-    to   { bottom: 100%; } /* scroll fully past top */
+    from { transform: translateY(100vh); }
+    to   { transform: translateY(-100%); } /* scroll completely past top */
 }
 </style>
 </head>
@@ -176,6 +174,7 @@ window.onload = function(){
 
 </body>
 </html>
+
 
 
 
