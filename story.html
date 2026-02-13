@@ -52,16 +52,16 @@ h1{
 
 .story-container{
     position: absolute;
-    bottom: 0;                /* start at bottom */
+    bottom: 0;                 
     width: 100%;
     text-align: center;
     transform: translateY(100vh);  /* start fully below screen */
-    animation: scrollUp 80s linear forwards; /* slower scroll */
+    animation: scrollUp 200s linear forwards; /* very slow scroll */
 }
 
 @keyframes scrollUp{
-    from { transform: translateY(100vh); }  /* start below screen */
-    to   { transform: translateY(-120%); }  /* scroll past top */
+    from { transform: translateY(100vh); }  
+    to   { transform: translateY(-100%); }  /* scroll just enough past top */
 }
 </style>
 </head>
@@ -151,6 +151,7 @@ function goBack(e){
 
 </body>
 </html>
+
 
 
 
