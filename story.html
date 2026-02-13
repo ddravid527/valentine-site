@@ -8,101 +8,101 @@
 
 body{
     margin:0;
-    background:black;
     overflow:hidden;
-    color:white;
     font-family:Arial;
+    color:white;
 }
 
-.container{
-    position:absolute;
-    bottom:-100%;
+/* Background image */
+body::before{
+    content:"";
+    position:fixed;
     width:100%;
-    text-align:center;
-    animation:scrollUp 60s linear forwards;
+    height:100%;
+    background:url("background.jpeg") center/cover no-repeat;
+    filter:brightness(40%);
+    z-index:-1;
 }
 
-p{
-    font-size:26px;
-    line-height:2;
-    width:80%;
-    margin:auto;
-}
-
-button{
+.back-btn{
     position:fixed;
     top:20px;
     left:20px;
     padding:10px 20px;
-    font-size:16px;
     border:none;
     border-radius:20px;
     cursor:pointer;
 }
 
-@keyframes scrollUp{
+.story-container{
+    position:absolute;
+    bottom:-100%;
+    width:100%;
+    text-align:center;
+    animation:scrollUp 70s linear forwards;
+}
 
+.story-text{
+    font-size:28px;
+    line-height:2.2;
+    width:80%;
+    margin:auto;
+}
+
+@keyframes scrollUp{
     from{
         bottom:-100%;
     }
-
     to{
         bottom:120%;
     }
-
 }
 
 </style>
-
 </head>
 
 <body>
 
-<button onclick="goBack()">⬅ Back</button>
+<button class="back-btn" onclick="goBack()">⬅ Back</button>
 
-<div class="container">
+<div class="story-container">
+
+<div class="story-text">
 
 <h1>Our Love Story ❤️</h1>
 
 <p>
-Hyy Ishu ❤️,
 
-This is the first Valentine’s Day that came after I got you… and this is the first time I’m truly realizing that this day is meant for lovers. Thank you for making me realize this 💌
+Hyy Ishu ❤️  
 
-From the day I fell in love with you, I started living with you in my heart. I was an angry, rude guy… but living with you made me a funny, soft person 😊
+This is the first Valentine's Day after I got you...
 
-I still remember those days when you felt so shy and lowered your head whenever you saw me 🫣 Your nervous body, your confusion, your fear… all of it is still living inside my heart forever.
+You changed a rude guy  
+into someone soft and alive.
 
-I remember the times you waited for my texts… the attention you silently wished for… those moments are unforgettable 💬
-I texted you from the gym, while traveling, and through countless midnight conversations 🌙 Those chats became the happiest part of my life.
+I still remember  
+your shy eyes…  
+your nervous smile…
 
-And our first kiss on 14th March 2025… it was full of fear, love, and magic 💋✨ I will never forget that moment.
+Our first kiss…  
+Our first night…  
 
-The first night I spent with you… that was the night I truly started living with you completely 🤍
+Every moment with you  
+is magic ✨  
 
-On November 11th, around 8 AM, when you wore the dress I bought for you and walked towards me… I don’t know when I fell in love with you, but on that day, I fell deeper than ever before 👗❤️
+You are my peace.  
+You are my forever.  
 
-The guy who had 0% belief in God… that 70kg, 6-feet rude guy… entered a temple just because you walked in front of him 🙏
-Even now, it feels unbelievable to me.
+We are going to marry soon 💍  
 
-I’m learning, improving, and pushing myself every day to prove myself worthy in your home. I wake up early, I work harder, and I prepare myself for our future 💪
-Even creating this surprise for you shows one truth — nothing in this world is more important to me than you.
+And I will always  
+hold you in my right hand ❤️  
 
-Enough words…
-
-I love you, pondati ❤️
-
-We are going to marry soon 💍
-Everything will go exactly like our plan.
-
-And even if something doesn’t…
-DD will handle everything with his left hand 💪
-Because my right hand will always be holding you forever 🤝❤️
-
-And there are promises waiting for you… from — Your DUDU 💌
-
+— Your DUDU
 
 </p>
+
+</div>
 
 </div>
 
