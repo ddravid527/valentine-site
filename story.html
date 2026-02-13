@@ -22,42 +22,40 @@ body::after {
     background: rgba(0,0,0,0.6);
     z-index: -1;
 }
+
 /* Buttons */
-.back-btn, .music-btn{
-    position:fixed;
-    top:20px;
-    padding:8px 18px;
-    font-size:14px;
-    border:none;
-    border-radius:20px;
-    cursor:pointer;
-    z-index:10;
+.back-btn, .music-btn {
+    position: fixed;
+    top: 20px;
+    padding: 8px 18px;
+    font-size: 14px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    z-index: 10;
 }
 
-.back-btn{ left:20px; }
-.music-btn{ right:20px; }
+.back-btn { left: 20px; }
+.music-btn { right: 20px; }
 
-.story-text{
-    width:70%;
-    margin:auto;
-    font-size:20px;
-    line-height:2;
+/* Story text */
+.story-text {
+    width: 70%;
+    margin: auto;
+    font-size: 20px;
+    line-height: 2;
 }
 
-h1{
-    font-size:32px;
-    margin-bottom:40px;
+h1 {
+    font-size: 32px;
+    margin-bottom: 40px;
 }
+
+/* Story container */
 .story-container {
     width: 100%;
     text-align: center;
-    transform: translateY(100vh); /* start below screen */
-    animation: scrollUp 260s linear forwards;
-}
-
-@keyframes scrollUp {
-    from { transform: translateY(100vh); }
-    to   { transform: translateY(-100%); } /* scroll completely past top */
+    transform: translateY(100vh); /* start fully below screen */
 }
 </style>
 </head>
@@ -74,40 +72,11 @@ h1{
 
 <div class="story-container">
 <div class="story-text">
-<h1 style="
-    text-align:center;
-    font-size:30px;
-    margin-bottom:40px;
-">
+<h1 style="text-align:center; font-size:30px; margin-bottom:40px;">
 Our Love Story ❤️
 </h1>
 
-<p style="
-    text-align:justify;
-    font-size:18px;
-    line-height:2;
-    width:65%;
-    margin:auto;
-">
-     <br>q<br>
-    <br>q<br>
-    <br>q<br>
-    <br>q<br>
-     <br>q<br>
-    <br>q<br>
-    <br>q<br>
-    <br>q<br>
-<br> <br>
-    <br> <br>
-    <br> <br>
-    <br> <br>
-    <br> <br>
-    <br> <br>
-
-    <br>q<br>
-    <br>q<br>
-    <br>q<br>
-    <br>q<br>
+<p style="text-align:justify; font-size:18px; line-height:2; width:65%; margin:auto;">
 Hyy Ishu ❤️,<br><br>
 
 This is the first Valentine’s Day that came after I got you… and this is the first time I’m truly realizing that this day is meant for lovers. Thank you for making me realize this 💌<br><br>
@@ -140,12 +109,11 @@ And even if something doesn’t… DD will handle everything with his left hand 
 And there are promises waiting for you… from your DUDU 💌<br><br>
 
 — Your DUDU
-
 </p>
 </div>
 </div>
 
-    <script>
+<script>
 let musicStarted = false;
 
 function startMusic(e){
@@ -162,29 +130,30 @@ function goBack(e){
     window.location.href = "love.html";
 }
 
-/* ADD THIS PART */
+// Scroll animation dynamically based on content
 window.onload = function(){
     const story = document.querySelector(".story-container");
-    story.style.animation = "none";
-    story.offsetHeight; // force reflow
-    story.style.animation = "scrollUp 260s linear forwards";
+    const storyHeight = story.offsetHeight;
+    const viewportHeight = window.innerHeight;
+
+    // Scroll speed in pixels per second
+    const speed = 30; // Increase for faster scroll
+
+    // Total distance to scroll
+    const distance = storyHeight + viewportHeight;
+
+    // Duration in seconds
+    const duration = distance / speed;
+
+    // Apply CSS transition
+    story.style.transition = `transform ${duration}s linear`;
+    
+    // Start scrolling immediately
+    requestAnimationFrame(() => {
+        story.style.transform = `translateY(-${storyHeight}px)`;
+    });
 };
 </script>
-    
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
