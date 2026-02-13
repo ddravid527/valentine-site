@@ -5,72 +5,100 @@
 <title>Our Love Story ❤️</title>
 
 <style>
-body{
+/* Overall interface pink background */
+body {
     margin:0;
     overflow:hidden;
-    font-family:Arial, sans-serif;
+    font-family: Arial, sans-serif;
     color:white;
-    background: url("background.jpeg") no-repeat center center fixed;
-    background-size: cover;
+    background-color: #ffc0cb; /* Light pink for interface */
 }
 
-/* Dark overlay */
-body::after{
+/* Background video */
+#bgVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+
+/* Dark pink overlay on video */
+body::after {
     content:"";
-    position:fixed;
+    position: fixed;
     inset:0;
-    background:rgba(0,0,0,0.6);
+    background: rgba(139,0,139,0.6); /* Dark pink overlay */
     z-index:-1;
 }
 
-/* Buttons */
-.back-btn, .music-btn{
-    position:fixed;
-    top:20px;
-    padding:8px 18px;
-    font-size:14px;
-    border:none;
-    border-radius:20px;
-    cursor:pointer;
-    z-index:10;
+/* Back button */
+.back-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    padding: 8px 18px;
+    font-size: 14px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    z-index: 10;
 }
 
-.back-btn{ left:20px; }
-.music-btn{ right:20px; }
-
-/* Story animation */
-.story-container{
-    position:absolute;
-    bottom:-100%;
-    width:100%;
-    text-align:center;
-    animation:scrollUp 40s linear forwards;
+/* Music button */
+.music-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 8px 18px;
+    font-size: 14px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    z-index: 10;
 }
 
-.story-text{
-    width:70%;
-    margin:auto;
-    font-size:20px;
-    line-height:2;
+/* Story container */
+.story-container {
+    position: absolute;
+    bottom: -100%; /* Start from below screen */
+    width: 100%;
+    text-align: center;
+    animation: scrollUp 40s linear forwards;
 }
 
-h1{
-    font-size:32px;
-    margin-bottom:40px;
+.story-text {
+    width: 70%;
+    margin: auto;
+    font-size: 20px;
+    line-height: 2;
 }
 
-@keyframes scrollUp{
-    from{ bottom:-20%; }
-    to{ bottom:120%; }
+h1 {
+    font-size: 32px;
+    margin-bottom: 40px;
+}
+
+/* Animation for scrolling story text from bottom */
+@keyframes scrollUp {
+    from { bottom: -20%; }
+    to { bottom: 120%; }
 }
 </style>
 </head>
 
 <body>
 
+<!-- Background Video -->
+<video autoplay muted loop id="bgVideo">
+    <source src="background_video.mp4" type="video/mp4">
+</video>
+
 <!-- Background Music -->
 <audio id="bgMusic" loop>
-    <source src="background_son.mp3" type="audio/mp3">
+    <source src="background_song.mp3" type="audio/mpeg">
 </audio>
 
 <!-- Buttons -->
@@ -79,53 +107,40 @@ h1{
 
 <!-- Story -->
 <div class="story-container">
-<div class="story-text">
-
-<h1>Our Love Story ❤️</h1>
-
-<p>
-Hyy Ishu ❤️<br><br>
-
-This is the first Valentine's Day after I got you...<br><br>
-
-You changed a rude guy<br>
-into someone soft and alive.<br><br>
-
-I still remember<br>
-your shy eyes…<br>
-your nervous smile…<br><br>
-
-Our first kiss…<br>
-Our first night…<br><br>
-
-Every moment with you<br>
-is magic ✨<br><br>
-
-You are my peace.<br>
-You are my forever.<br><br>
-
-We are going to marry soon 💍<br><br>
-
-And I will always<br>
-hold you in my right hand ❤️<br><br>
-
-— Your DUDU
-</p>
-
-</div>
+    <div class="story-text">
+        <h1>Our Love Story ❤️</h1>
+        <p>
+        Hyy Ishu ❤️<br><br>
+        This is the first Valentine's Day after I got you...<br><br>
+        You changed a rude guy<br>
+        into someone soft and alive.<br><br>
+        I still remember<br>
+        your shy eyes…<br>
+        your nervous smile…<br><br>
+        Our first kiss…<br>
+        Our first night…<br><br>
+        Every moment with you<br>
+        is magic ✨<br><br>
+        You are my peace.<br>
+        You are my forever.<br><br>
+        We are going to marry soon 💍<br><br>
+        And I will always<br>
+        hold you in my right hand ❤️<br><br>
+        — Your DUDU
+        </p>
+    </div>
 </div>
 
 <script>
 // Flag to start music only once
 let musicStarted = false;
 
-// Function to start music
+// Start music safely
 function startMusic(){
     if(!musicStarted){
         const audio = document.getElementById("bgMusic");
         audio.play().then(()=> {
             musicStarted = true;
-            console.log("Music started!");
         }).catch(err=>{
             console.log("Audio blocked:", err);
         });
@@ -134,20 +149,28 @@ function startMusic(){
 
 // Play music from button
 function playMusic(e){
-    e.stopPropagation(); // prevent body click conflict
+    e.stopPropagation();
     startMusic();
 }
 
 // Play music on first click anywhere
 document.body.addEventListener("click", startMusic, { once:true });
 
-// Back button
+// Back button function
 function goBack(e){
     e.stopPropagation();
-    window.location.href = "love.html"; // make sure love.html exists
+    // Navigate back and force reload
+    window.location.href = "love.html";
+}
+
+// Force animation to restart on page reload
+window.onload = function() {
+    const story = document.querySelector('.story-container');
+    story.style.animation = 'none'; // Reset animation
+    void story.offsetWidth;          // Trigger reflow
+    story.style.animation = 'scrollUp 40s linear forwards';
 }
 </script>
 
 </body>
 </html>
-
